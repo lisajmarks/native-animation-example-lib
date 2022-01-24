@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Animated } from "react-native";
+import { Animated, Image, StyleSheet } from "react-native";
 
 function Lisa() {
   const translation = useRef(new Animated.Value(0)).current;
@@ -15,13 +15,13 @@ function Lisa() {
   //Calling start on this animation…starts the animation.
 
   return (
-    <Animated.View
+    <Animated.Image
       style={{
         width: 100,
         height: 100,
-        backgroundColor: "green",
         transform: [{ translateX: translation }],
       }}
+      source={require("./dog.png")}
     />
   );
 }
