@@ -45,13 +45,13 @@ const Amele = () => {
       <View style={styles.cardWrapper}>
         <View style={styles.card}>
           <View style={styles.circle}>
-            <Text style={styles.circleText}>Hello Animated World </Text>
+            <Text style={styles.circleText}>Hello Animated World  what is going on?</Text>
           </View>
         <View style={styles.textContainer}>
           <Text style={styles.fadingText}>The Animated library is designed to make animations fluid, powerful, and painless to build and maintain.</Text>
           
           <TouchableOpacity onPress={fadeOut} >
-            <Text style={styles.buttonRow}>Fade Out</Text>
+            <Text style={styles.buttonRow}>Fade In</Text>
           </TouchableOpacity>  
         </View>
         
