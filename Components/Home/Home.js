@@ -8,6 +8,8 @@ const Home = ({ navigation }) => {
       <AnimatedButton navigation={navigation} place="Test" />
       <AnimatedButton navigation={navigation} place="Sample" />
       <AnimatedButton navigation={navigation} place="Sergut" />
+      <AnimatedButton navigation={navigation} place="Lisa" />
+      <AnimatedButton navigation={navigation} place="Yiley" />
     </View>
   );
 };
