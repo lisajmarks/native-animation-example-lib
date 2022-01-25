@@ -1,74 +1,90 @@
-import { StyleSheet, Text, View, TouchableOpacity  } from 'react-native';
-import React,{useEffect, useRef} from 'react';
-import { Animated } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Pressable , ActivityIndicator} from 'react-native';
+import React, {useEffect} from 'react';
+import { Animated, Easing } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
+  const Amele = () => {
+    const fadeAnimation= new Animated.Value(0);
+    
+    const animHandler = () => {
+      Animated.spring(fadeAnimation, {
+        toValue: 150,
+        duration: 1000,
+        friction:1,
+        tension:8,
+    
+        useNativeDriver: true,
+      }).start(() => {
+        fadeAnimation._value = 0;
+        
+      });
+    };
 
+    const trans={
+      transform:[
+        {translateY: fadeAnimation}
+      ]
+    }
+    // const spinVal= new Animated.Value(0);
+   
+    //   Animated.timing(spinVal,{
+    //     toValue:1,
+    //     duration:4000,
+    //     easing:Easing.linear
+    //   }.start(()=>spinVal()))
 
+    // const trans={
+    //   transform:[
+    //     {translateY: spinVal}
+    //   ]
+    // }
 
-const Amele = () => {
-  const position = useRef(new Animated.Value(0)).current;
-  const fadeIn = () => {
-    // Will change fadeAnim value to 1 in 5 seconds
-    Animated.timing(position, {
-      toValue: 1,
-      duration: 5000
-    }).start();
-  };
-
-  const fadeOut = () => {
-    // Will change fadeAnim value to 0 in 3 seconds
-    Animated.timing(position, {
-      toValue: 0,
-      duration: 3000
-    }).start();
-  };
-
-  // useEffect(() => {
-  //   Animated.timing(position, {
-  //     toValue: 25,
-  //     delay: 500,
-  //     duration: 1000,
-  //     useNativeDriver: true,
-  //   }).start();
-  // }, []);
-  // Animated.timing(position, {
-  //   toValue: 0,
-  //   delay: 100,
-  //   duration: 100,
-  //   useNativeDriver: true,
-  //   bounciness: 640,
-  // }).start();
-
-  return (
-    <Animated.View style={styles.container}>
-      <View style={styles.cardWrapper}>
+    return (
+      <SafeAreaView style={styles.container}>
+           <Animated.View style={[styles.card, trans]}>
+           <ActivityIndicator />
+          
+           <View style={styles.cardWrapper}>
         <View style={styles.card}>
           <View style={styles.circle}>
-            <Text style={styles.circleText}>Hello Animated World  what is going on?</Text>
+            <Text style={styles.circleText}>Animated </Text> 
           </View>
+         
         <View style={styles.textContainer}>
-          <Text style={styles.fadingText}>The Animated library is designed to make animations fluid, powerful, and painless to build and maintain.</Text>
+          <Text style={styles.text}>The Animated library is designed to make animations fluid, powerful, and painless to build and maintain.</Text>
+          <View style={styles.btnRow}>
+          <TouchableOpacity onPress={animHandler} >
+            <Text style={styles.textbtn}>Click me</Text>
+          </TouchableOpacity> 
+          <ActivityIndicator />
           
-          <TouchableOpacity onPress={fadeOut} >
-            <Text style={styles.buttonRow}>Fade In</Text>
-          </TouchableOpacity>  
+
+          <TouchableOpacity  >
+            <Text style={styles.textbtn}>Fadeout </Text>
+          </TouchableOpacity>   
+          </View>
+          
         </View>
         
         </View>
        
       </View>
+    
+          
+          </Animated.View>
+
+      </SafeAreaView>
       
-    </Animated.View>
-  );
-};
+    );
+  };
 
 export default Amele;
 
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    justifyContent:"center",
+    justifyContent:"flex-start",
     alignItems:"center",
  
   },
@@ -77,7 +93,8 @@ const styles = StyleSheet.create({
     width:400,
     height:200,
     flexDirection:"row",
-    
+    borderRadius:20,
+    marginTop:50
    
   },
   circle:{
@@ -86,6 +103,7 @@ const styles = StyleSheet.create({
     backgroundColor:'red',
     borderRadius:"100%",
     margin:25,
+    
     
   }, 
   circleText:{
@@ -99,6 +117,7 @@ const styles = StyleSheet.create({
     height:100,
     // marginTop:5, 
     padding:18,
+    
    
   },
   text:{
@@ -116,12 +135,21 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "powderblue"
   },
-  fadingText: {
-    fontSize: 18
+  btnRow: {
+    flexDirection:'row',
+    justifyContent:'space-between',
+  width:200,
+  marginTop:20
+    
   },
-  buttonRow: {
-    flexBasis: 100,
-    justifyContent: "space-evenly",
-    marginVertical: 16
+  textbtn:{
+    color:"tomato",
+    fontSize:20
   }
+
 });
+
+
+
+
+
