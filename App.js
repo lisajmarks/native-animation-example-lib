@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Test from "./Components/Test/Test";
 import Sample from "./Components/Sample/Sample";
 import Home from "./Components/Home/Home";
+import Jesse from "./Components/Jesse/Jesse";
 import Angel from "./Components/Angel/Angel";
 import Will from "./Components/Will/Will";
 import Anthony from "./Components/Anthony/Anthony";
@@ -28,6 +29,7 @@ function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Test" component={Test} />
         <Stack.Screen name="Sample" component={Sample} />
+        <Stack.Screen name="Jesse" component={Jesse} />
         <Stack.Screen name="Will" component={Will} />
         <Stack.Screen name="Anthony" component={Anthony} />
         <Stack.Screen name="Linda" component={Linda} />
