@@ -153,11 +153,11 @@ prev nextBgColor === next bgColor
 */
 
 const colors = [
-  {
-    initialBgColor: "goldenrod",
-    bgColor: "#222",
-    nextBgColor: "#222",
-  },
+  // {
+  //   initialBgColor: "goldenrod",
+  //   bgColor: "#222",
+  //   nextBgColor: "#222",
+  // },
   {
     initialBgColor: "goldenrod",
     bgColor: "#222",
@@ -218,7 +218,7 @@ export default function App() {
       animatedValue2.setValue(0);
       animate((index + 1) % colors.length).start();
       setIndex((index + 1) % colors.length);
-      console.log(colors[index]);
+      console.log(colors.length, quotes.length);
     }
   };
 
