@@ -9,7 +9,7 @@ const Will = () => {
       Animated.timing(loopAnim, {
         toValue: 1,
         duration: 2500,
-        useNativeDriver: true,
+        useNativeDriver: false,
       })
     ).start();
   }, []);
