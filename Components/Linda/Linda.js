@@ -1,7 +1,64 @@
-import { View, Text, Animated, PanResponder, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Animated,
+  PanResponder,
+  StyleSheet,
+  FlatList,
+} from "react-native";
 import React, { useRef } from "react";
+import { Swipeable } from "react-native-gesture-handler";
 
 const Linda = () => {
+  const DATA = [
+    {
+      id: "123",
+      fName: "Asah",
+    },
+    {
+      id: "456",
+      fName: "Ashten",
+    },
+    {
+      id: "789",
+      fName: "Ayvah",
+    },
+  ];
+
+  const Item = ({ fName }) => (
+    <Swipeable renderLeftActions={LeftAction}>
+      <View style={styles.item}>
+        <Text style={styles.fName}>{fName}</Text>
+      </View>
+    </Swipeable>
+  );
+  const LeftAction = (progress, dragX) => {
+    const scale = dragX.interpolate({
+      inputRange: [0, 100],
+      outputRange: [0, 1],
+      extrapolate: "clamp",
+    });
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "lightgrey",
+          justifyContent: "center",
+        }}
+      >
+        <Animated.Text
+          style={{
+            color: "black",
+            fontWeight: "600",
+            transform: [{ scale }],
+            marginLeft: 10,
+          }}
+        >
+          HELLO
+        </Animated.Text>
+      </View>
+    );
+  };
   const pan = useRef(new Animated.ValueXY()).current;
   const panResponder = useRef(
     PanResponder.create({
@@ -13,17 +70,28 @@ const Linda = () => {
     })
   ).current;
 
+  const renderItem = ({ item }) => <Item fName={item.fName} />;
+
   return (
     <View style={styles.container}>
-      <Text style={styles.titleText}>Drag this box!</Text>
-      <Animated.View
-        style={{
-          transform: [{ translateX: pan.x }, { translateY: pan.y }],
-        }}
-        {...panResponder.panHandlers}
-      >
-        <View style={styles.box} />
-      </Animated.View>
+      <View style={styles.an1}>
+        <Text style={styles.titleText}>Drag this box!</Text>
+        <Animated.View
+          style={{
+            transform: [{ translateX: pan.x }, { translateY: pan.y }],
+          }}
+          {...panResponder.panHandlers}
+        >
+          <View style={styles.box} />
+        </Animated.View>
+      </View>
+      <View>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
     </View>
   );
 };
@@ -31,20 +99,35 @@ const Linda = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: "row",
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  an1: {
+    margin: 50,
   },
   titleText: {
     fontSize: 16,
     lineHeight: 24,
     fontWeight: "bold",
+    textAlign: "center",
   },
   box: {
     height: 200,
     width: 200,
     backgroundColor: "pink",
     borderRadius: 10,
+  },
+  item: {
+    backgroundColor: "#f9c2ff",
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    width: 150,
+  },
+  title: {
+    fontSize: 32,
   },
 });
 
