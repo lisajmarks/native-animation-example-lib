@@ -8,7 +8,7 @@ const Home = ({ navigation }) => {
       <AnimatedButton navigation={navigation} place="Test" />
       <AnimatedButton navigation={navigation} place="Sample" />
       <AnimatedButton navigation={navigation} place="Anthony" />
-
+      <AnimatedButton navigation={navigation} place="Linda" />
     </View>
   );
 };

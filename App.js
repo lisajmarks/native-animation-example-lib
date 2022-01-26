@@ -8,6 +8,7 @@ import Test from "./Components/Test/Test";
 import Sample from "./Components/Sample/Sample";
 import Home from "./Components/Home/Home";
 import Anthony from "./Components/Anthony/Anthony";
+import Linda from "./Components/Linda/Linda";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ function App() {
         <Stack.Screen name="Test" component={Test} />
         <Stack.Screen name="Sample" component={Sample} />
         <Stack.Screen name="Anthony" component={Anthony} />
+        <Stack.Screen name="Linda" component={Linda} />
       </Stack.Navigator>
     </NavigationContainer>
   );
