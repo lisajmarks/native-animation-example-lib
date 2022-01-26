@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Test from "./Components/Test/Test";
 import Sample from "./Components/Sample/Sample";
 import Home from "./Components/Home/Home";
+<<<<<<< HEAD
 import Anthony from "./Components/Anthony/Anthony";
 import Linda from "./Components/Linda/Linda";
 import Sergut from "./Components/Sergut/Sergut";
@@ -14,6 +15,9 @@ import Lisa from "./Components/Lisa/Lisa";
 import Yiley from "./Components/Yiley/Yiley";
 import Ezer from "./Components/Ezer/Ezer";
 import Angel from "./Components/Angel/Angel";
+=======
+import Will from "./Components/Will/Will";
+>>>>>>> e94c084 (Created Spinning Animation)
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +28,7 @@ function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Test" component={Test} />
         <Stack.Screen name="Sample" component={Sample} />
+<<<<<<< HEAD
         <Stack.Screen name="Anthony" component={Anthony} />
         <Stack.Screen name="Linda" component={Linda} />
         <Stack.Screen name="Sergut" component={Sergut} />
@@ -31,6 +36,9 @@ function App() {
         <Stack.Screen name="Yiley" component={Yiley} />
         <Stack.Screen name="Ezer" component={Ezer} />
         <Stack.Screen name="Angel" component={Angel} />
+=======
+        <Stack.Screen name="Will" component={Will} />
+>>>>>>> e94c084 (Created Spinning Animation)
       </Stack.Navigator>
     </NavigationContainer>
   );
