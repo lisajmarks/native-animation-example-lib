@@ -12,6 +12,7 @@ import Linda from "./Components/Linda/Linda";
 import Sergut from "./Components/Sergut/Sergut";
 import Lisa from "./Components/Lisa/Lisa";
 import Yiley from "./Components/Yiley/Yiley";
+import Ezer from "./Components/Ezer/Ezer";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,7 @@ function App() {
         <Stack.Screen name="Sergut" component={Sergut} />
         <Stack.Screen name="Lisa" component={Lisa} />
         <Stack.Screen name="Yiley" component={Yiley} />
+        <Stack.Screen name="Ezer" component={Ezer} />
       </Stack.Navigator>
     </NavigationContainer>
   );
