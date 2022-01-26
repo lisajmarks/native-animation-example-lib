@@ -13,6 +13,7 @@ const Home = ({ navigation }) => {
       <AnimatedButton navigation={navigation} place="Lisa" />
       <AnimatedButton navigation={navigation} place="Yiley" />
       <AnimatedButton navigation={navigation} place="Ezer" />
+      <AnimatedButton navigation={navigation} place="Angel" />
     </View>
   );
 };
