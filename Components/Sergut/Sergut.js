@@ -7,7 +7,7 @@ const FadeInView = (props) => {
   useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 10000,
+      duration: 15000,
     }).start();
   }, [fadeAnim]);
 
@@ -28,10 +28,10 @@ export default () => {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <FadeInView
-        style={{ width: 250, height: 50, backgroundColor: "powderblue" }}
+        style={{ width: 250, height: 100, backgroundColor: "skyblue" }}
       >
-        <Text style={{ fontSize: 28, textAlign: "center", margin: 10 }}>
-          Sergut
+        <Text style={{ fontSize: 50, textAlign: "center", margin: 20 }}>
+          Sergutye
         </Text>
       </FadeInView>
     </View>
