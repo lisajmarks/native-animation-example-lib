@@ -16,6 +16,7 @@ import Ezer from "./Components/Ezer/Ezer";
 import Angel from "./Components/Angel/Angel";
 import Will from "./Components/Will/Will";
 import Amele from "./Components/Amele/Amele";
+import Beakal from "./Components/Beakal/Beakal";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,7 @@ function App() {
         <Stack.Screen name="Angel" component={Angel} />
         <Stack.Screen name="Will" component={Will} />
         <Stack.Screen name="Amele" component={Amele} />
+        <Stack.Screen name="Beakal" component={Beakal} />
       </Stack.Navigator>
     </NavigationContainer>
   );

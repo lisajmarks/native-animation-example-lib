@@ -15,6 +15,7 @@ const Home = ({ navigation }) => {
       <AnimatedButton navigation={navigation} place="Ezer" />
       <AnimatedButton navigation={navigation} place="Angel" />
       <AnimatedButton navigation={navigation} place="Will" />
+      <AnimatedButton navigation={navigation} place="Beakal" />
     </View>
   );
 };
