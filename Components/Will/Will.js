@@ -27,7 +27,7 @@ const Will = () => {
     <SafeAreaView style={styles.container}>
       <Animated.Image
         style={[styles.box, animatedObject]}
-        source={require("../../images/loading.png")}
+        source={require("./loading.png")}
       ></Animated.Image>
     </SafeAreaView>
   );
