@@ -37,9 +37,10 @@ const Spinner = () => {
   return (
     <View style={styles.container}>
       <Animated.Image
+        resizeMode="contain"
         style={{
-          width: 227,
-          height: 200,
+          width: 150,
+          height: 150,
           transform: [{ rotate: spin }],
         }}
         source={{
