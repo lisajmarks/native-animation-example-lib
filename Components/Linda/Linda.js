@@ -9,56 +9,56 @@ import {
 import React, { useRef } from "react";
 import { Swipeable } from "react-native-gesture-handler";
 
-const DATA = [
-  {
-    id: "123",
-    fName: "Asah",
-  },
-  {
-    id: "456",
-    fName: "Ashten",
-  },
-  {
-    id: "789",
-    fName: "Ayvah",
-  },
-];
+const Linda = () => {
+  const DATA = [
+    {
+      id: "123",
+      fName: "Asah",
+    },
+    {
+      id: "456",
+      fName: "Ashten",
+    },
+    {
+      id: "789",
+      fName: "Ayvah",
+    },
+  ];
 
-const Item = ({ fName }) => (
-  <Swipeable renderLeftActions={LeftAction}>
-    <View style={styles.item}>
-      <Text style={styles.fName}>{fName}</Text>
-    </View>
-  </Swipeable>
-);
-const LeftAction = (progress, dragX) => {
-  const scale = dragX.interpolate({
-    inputRange: [-50, 0],
-    outputRange: [0.7, 0],
-  });
-  return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "lightgrey",
-        justifyContent: "center",
-      }}
-    >
-      <Animated.Text
+  const Item = ({ fName }) => (
+    <Swipeable renderLeftActions={LeftAction}>
+      <View style={styles.item}>
+        <Text style={styles.fName}>{fName}</Text>
+      </View>
+    </Swipeable>
+  );
+  const LeftAction = (progress, dragX) => {
+    const scale = dragX.interpolate({
+      inputRange: [0, 100],
+      outputRange: [0, 1],
+      extrapolate: "clamp",
+    });
+    return (
+      <View
         style={{
-          color: "black",
-          fontWeight: "600",
-          transform: [{ scale }],
-          textAlign: "right",
+          flex: 1,
+          backgroundColor: "lightgrey",
+          justifyContent: "center",
         }}
       >
-        HELLO
-      </Animated.Text>
-    </View>
-  );
-};
-
-const Linda = () => {
+        <Animated.Text
+          style={{
+            color: "black",
+            fontWeight: "600",
+            transform: [{ scale }],
+            marginLeft: 10,
+          }}
+        >
+          HELLO
+        </Animated.Text>
+      </View>
+    );
+  };
   const pan = useRef(new Animated.ValueXY()).current;
   const panResponder = useRef(
     PanResponder.create({
