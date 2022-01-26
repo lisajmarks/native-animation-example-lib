@@ -34,7 +34,7 @@ const Will = () => {
     <SafeAreaView style={styles.container}>
       <Animated.Image
         style={[styles.box, animatedObject]}
-        source={require("../../images/loading")}
+        source={require("../../images/loading.png")}
       ></Animated.Image>
       <View>
         <Pressable style={styles.loadingButton} onPress={loading}>
