@@ -1,17 +1,10 @@
-import React, { useRef } from "react";
-import {
-  Animated,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  View,
-  Pressable,
-} from "react-native";
+import React, { useRef, useEffect } from "react";
+import { Animated, StyleSheet, SafeAreaView } from "react-native";
 
 const Will = () => {
   const loopAnim = useRef(new Animated.Value(0)).current;
 
-  const loading = () => {
+  useEffect(() => {
     Animated.loop(
       Animated.timing(loopAnim, {
         toValue: 1,
@@ -19,7 +12,7 @@ const Will = () => {
         useNativeDriver: true,
       })
     ).start();
-  };
+  }, []);
 
   const rotateObject = loopAnim.interpolate({
     inputRange: [0, 1],
@@ -36,11 +29,6 @@ const Will = () => {
         style={[styles.box, animatedObject]}
         source={require("../../images/loading.png")}
       ></Animated.Image>
-      <View>
-        <Pressable style={styles.loadingButton} onPress={loading}>
-          <Text style={styles.loadingText}>Loading...</Text>
-        </Pressable>
-      </View>
     </SafeAreaView>
   );
 };
@@ -54,17 +42,6 @@ const styles = StyleSheet.create({
   box: {
     width: 300,
     height: 300,
-  },
-  loadingButton: {
-    backgroundColor: "tomato",
-    padding: 10,
-    marginTop: 10,
-    borderRadius: 10,
-  },
-  loadingText: {
-    fontSize: 18,
-    fontWeight: "700",
-    color: "#fefefe",
   },
 });
 
