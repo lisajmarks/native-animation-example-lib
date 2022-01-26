@@ -11,6 +11,7 @@ import Anthony from "./Components/Anthony/Anthony";
 import Linda from "./Components/Linda/Linda";
 import Sergut from "./Components/Sergut/Sergut";
 import Lisa from "./Components/Lisa/Lisa";
+import Yiley from "./Components/Yiley/Yiley";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,7 @@ function App() {
         <Stack.Screen name="Linda" component={Linda} />
         <Stack.Screen name="Sergut" component={Sergut} />
         <Stack.Screen name="Lisa" component={Lisa} />
+        <Stack.Screen name="Yiley" component={Yiley} />
       </Stack.Navigator>
     </NavigationContainer>
   );
