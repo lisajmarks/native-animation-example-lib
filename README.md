@@ -21,3 +21,15 @@ Create an animation (any animation)
 - Create a cool animation
 
 - Github => create a pull request, leave pull request open.
+
+Pull request instructions:
+
+- add all changes `git add -A`
+- commit these changes `git commit -m "<message of choice>"`
+- push changes to forked repo (on personal account) `git push`
+
+## Github
+
+- click on button that says "contribute"
+- verify arrow direction
+- make pull request (do not merge it)
