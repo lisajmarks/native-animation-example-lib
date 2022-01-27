@@ -1,49 +1,37 @@
 import React, { useRef } from "react";
-import {
-  Animated,
-  Text,
-  View,
-  StyleSheet,
-  Button,
-  SafeAreaView,
-} from "react-native";
+import { Animated, View, StyleSheet, Button, SafeAreaView } from "react-native";
 
-const App = () => {
-  // fadeAnim will be used as the value for opacity. Initial Value: 0
-  const fadeAnim = useRef(new Animated.Value(0)).current;
+const Jesse = () => {
+  const fadeAnim = useRef(new Animated.Value(1)).current;
 
-  const fadeIn = () => {
-    // Will change fadeAnim value to 1 in 5 seconds
+  const original = () => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 5000,
+      duration: 3000,
     }).start();
   };
 
-  const fadeOut = () => {
-    // Will change fadeAnim value to 0 in 3 seconds
+  const wumbo = () => {
     Animated.timing(fadeAnim, {
-      toValue: 0,
+      toValue: -1,
       duration: 3000,
     }).start();
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <Animated.View
+      <Animated.Image
         style={[
-          styles.fadingContainer,
+          styles.image,
           {
-            // Bind opacity to animated value
-            opacity: fadeAnim,
+            transform: [{ scaleY: fadeAnim }],
           },
         ]}
-      >
-        <Text style={styles.fadingText}>Temporary</Text>
-      </Animated.View>
+        source={require("./belt.jpg")}
+      />
       <View style={styles.buttonRow}>
-        <Button title="Fade In View" onPress={fadeIn} />
-        <Button title="Fade Out View" onPress={fadeOut} />
+        <Button title="Wumbo" onPress={wumbo} />
+        <Button title="Original" onPress={original} />
       </View>
     </SafeAreaView>
   );
@@ -55,12 +43,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  fadingContainer: {
-    padding: 20,
-    backgroundColor: "blue",
-  },
-  fadingText: {
-    fontSize: 28,
+  image: {
+    width: 200,
+    height: 100,
   },
   buttonRow: {
     flexBasis: 100,
@@ -69,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Jesse;
