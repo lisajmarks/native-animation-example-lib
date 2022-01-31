@@ -13,6 +13,7 @@ function Lisa() {
     }).start();
   }, []);
   //Calling start on this animation…starts the animation.
+  // force a change
 
   return (
     <Animated.Image
